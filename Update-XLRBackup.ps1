@@ -1,4 +1,21 @@
 [CmdletBinding()]
+<#
+    .Synopsis 
+    Update-XLRBackup.ps1 is designed to be run on a schedule or ad-hoc. It polls the XLR API and checks to see if any templates have been amended since the last run. If there have, it iterates over all the templates and compares the latest JSON format with the last known version. If there is a difference, it increments the version number and keeps a new copy in the store. 
+
+    .Parameter Store
+    Parent Path to the store where the folders should be kept.
+
+    .Parameter User
+    The user who will be logging on to the XLR API
+
+    .Parameter Server
+    Which box will be used.
+
+    .Parameter EncodedCreds
+    If you do not wish to use the password at the start, encode the username and password as shown below and pass as an argument
+
+#>
 Param(
 [Parameter(Mandatory=$False)]
 [string]
